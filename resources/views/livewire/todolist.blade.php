@@ -22,16 +22,18 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>1.</td>
-                    <td>Membuat Mie Udon</td>
-                    <td>
-                        <div class="d-flex gap-1">
-                            <button class="btn btn-warning btn-sm">Edit</button>
-                            <button class="btn btn-danger btn-sm">Hapus</button>
-                        </div>
-                    </td>
-                </tr>
+                @foreach ($todos as $key => $todo)
+                    <tr>
+                        <td>{{ ++$key }}</td>
+                        <td>{{ $todo->title }}</td>
+                        <td>
+                            <div class="d-flex gap-1">
+                                <button class="btn btn-warning btn-sm">Edit</button>
+                                <button class="btn btn-danger btn-sm">Hapus</button>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
