@@ -7,6 +7,15 @@ use Livewire\Component;
 
 class Todolist extends Component
 {
+    public $title = '';
+
+    public function save()
+    {
+        Todo::create(['title' => $this->title]);
+
+        $this->reset();
+    }
+
     public function render()
     {
         return view('livewire.todolist', [
