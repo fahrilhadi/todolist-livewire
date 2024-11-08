@@ -9,11 +9,27 @@ class Todolist extends Component
 {
     public $title = '';
 
+    public $id_todo = 0;
+
+    public $isEdit = false;
+
     public function save()
     {
-        Todo::create(['title' => $this->title]);
+        if ($this->id_todo != 0) {
+            Todo::find($this->id_todo)->update(['title' => $this->title]);
+        } else {
+            Todo::create(['title' => $this->title]);
+        }
 
         $this->reset();
+    }
+
+    public function edit($id)
+    {
+        $todo = Todo::find($id);
+        $this->id_todo = $todo->id;
+        $this->title = $todo->title;
+        $this->isEdit = true;
     }
 
     public function render()

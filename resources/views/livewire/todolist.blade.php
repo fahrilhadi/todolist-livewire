@@ -6,7 +6,7 @@
             <label for="title" class="mb-1">Judul Todo</label>
             <input type="text" id="title" wire:model="title" class="form-control shadow-none">
         </div>
-        <button type="submit" class="btn btn-primary">Buat</button>
+        <button type="submit" class="btn btn-primary">{{ $isEdit == true ? 'Edit Todo' : 'Buat' }}</button>
     </form>
 
     <hr class="mb-4">
@@ -28,8 +28,8 @@
                         <td>{{ $todo->title }}</td>
                         <td>
                             <div class="d-flex gap-1">
-                                <button class="btn btn-warning btn-sm">Edit</button>
-                                <button class="btn btn-danger btn-sm">Hapus</button>
+                                <button type="button" wire:click="edit({{ $todo->id }})" class="btn btn-warning btn-sm">Edit</button>
+                                <button type="button" class="btn btn-danger btn-sm">Hapus</button>
                             </div>
                         </td>
                     </tr>
