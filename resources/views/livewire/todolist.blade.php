@@ -29,7 +29,7 @@
                         <td>
                             <div class="d-flex gap-1">
                                 <button type="button" wire:click="edit({{ $todo->id }})" class="btn btn-warning btn-sm">Edit</button>
-                                <button type="button" class="btn btn-danger btn-sm">Hapus</button>
+                                <button type="button" wire:click="delete({{ $todo->id }})" wire:confirm="Apakah kamu yakin ingin menghapusnya?" class="btn btn-danger btn-sm">Hapus</button>
                             </div>
                         </td>
                     </tr>
